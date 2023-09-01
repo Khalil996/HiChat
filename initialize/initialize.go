@@ -1,21 +1,21 @@
 package initialize
 
 import (
-"fmt"
-"log"
-"os"
-"time"
+	"fmt"
+	"log"
+	"os"
+	"time"
 
-"HiChat/global"
+	"HiChat/global"
 
-"gorm.io/gorm/logger"
-"gorm.io/driver/mysql"
-"gorm.io/gorm"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 func InitDB() {
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", root,
-		123456, 127.0.0.1, 3300, hi_chat)
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=True&loc=Local", "root",
+		"123456", "127.0.0.1", 3306, "hi_chat")
 	//注意：User和Password为MySQL数据库的管理员密码，Host和Port为数据库连接ip端口，DBname为要连接的数据库
 
 	//写sql语句配置
