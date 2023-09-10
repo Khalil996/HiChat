@@ -2,6 +2,7 @@ package main
 
 import (
 	"HiChat/initialize"
+	"HiChat/router"
 )
 
 func main() {
@@ -9,4 +10,7 @@ func main() {
 	initialize.InitDB()
 	//初始化日志
 	initialize.InitLogger()
+
+	router := router.Router()
+	router.Run(":8000")
 }
