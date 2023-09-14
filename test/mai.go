@@ -19,4 +19,13 @@ func main() {
 		panic(err)
 	}
 
+	err = db.AutoMigrate(&models.Relation{})
+	if err != nil {
+		panic(err)
+	}
+
+	err = db.AutoMigrate(&models.Community{})
+	if err != nil {
+		panic(err)
+	}
 }

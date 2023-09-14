@@ -22,5 +22,15 @@ func Router() *gin.Engine {
 		user.DELETE("/delete_user", middlewear.JWY(), service.DeleteUser)
 		user.POST("update_user", middlewear.JWY(), service.UpdateUser)
 	}
+	//好友关系
+	relation := v1.Group("relation").Use(middlewear.JWY())
+	{
+		relation.POST("/list", service.FriendList)
+		relation.POST("/add", service.AddFriendByName)
+		relation.POST("/new_group", service.NewGroup)
+		relation.POST("/group_list", service.GroupList)
+		relation.POST("/join_group", service.JoinGroup)
+	}
+
 	return router
 }
